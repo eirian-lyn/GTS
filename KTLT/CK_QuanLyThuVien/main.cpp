@@ -23,35 +23,35 @@ struct READERS{
 	char email[40];			//Hop thu dien tu
 	char address[256];		//dia chi trong demo de tinh thoi cho gon gang
 	DATE cardIssuing;		//Ngay phat hanh the , Khi gia han se cap the moi cung ID
-	DATE cardExpiry;		//Ngay het han the khoi tao = Ngay lam the + tròn 1 nam.
-	//Cân 1 ý tuong cho Gia Han The, Gia han cai gì? Ngay Phat Hanh (cap the moi) hay la cap nhat HSD.
+	DATE cardExpiry;		//Ngay het han the khoi tao = Ngay lam the + trÃ²n 1 nam.
+	//CÃ¢n 1 Ã½ tuong cho Gia Han The, Gia han cai gÃ¬? Ngay Phat Hanh (cap the moi) hay la cap nhat HSD.
 };
 struct BOOK{
 	char idOfBook[10];		//10 ky tu
 	char title[60];			//Ten sach
 	char author[60];		//Ten tac gia
-	char publisher[30];		//Nhà xuat ban
+	char publisher[30];		//NhÃ  xuat ban
 	int publicationYear;	//Nam xuat ban
 	char genre[30];			//The loai
-	int coverPrice;			//Giá bìa, mat sach phat 200% gia bia
-	int totalNumber;		//Tong so sach ma TV có
-	int totalRemaining;		//Tong so sach ma TV còn
+	int coverPrice;			//GiÃ¡ bÃ¬a, mat sach phat 200% gia bia
+	int totalNumber;		//Tong so sach ma TV cÃ³
+	int totalRemaining;		//Tong so sach ma TV cÃ²n
 };
 struct BORROW_RETURN{		//Phieu Muon/Tra
 	int numberOrdinalTicket;//So thu tu cua phieu muon
 	char idOfReaders[5];	//ID doc gia gom 5 ky tu
 	char idOfBook[5][10];	//danh sach toi da 5 sach duoc muon.
 	DATE borrowDate;		//Ngay muon sach, toi da 7 ngay
-	DATE returnDate;		//Ngay tra sach, tre 5k/ngày
+	DATE returnDate;		//Ngay tra sach, tre 5k/ngÃ y
 	int status;				//Trang thai phieu, 1=Da Tra, 0=Chua Tra
 };
 void viewInfo();
 void confirmExit();
 void showMenu(int &selectFalse);
-
+void detleteBook();
 int main(){
 	
-	int selectFalse = 0;				//Còw Lêjnh, Bat thong bao khi chon menu sai
+	int selectFalse = 0;				//CÃ²w LÃªjnh, Bat thong bao khi chon menu sai
 	READERS readers[1000];						//Khoi tao mang 1000 doc gia
 	BORROW_RETURN borrowReturnRecord[10000];	//Khoi tao So ghi Phieu muon tra, 10000 record
 	BOOK books[9500];							//Khoi tao mang 10000 ddaauf sachs, sao cho nay bi tran Data :(
@@ -164,3 +164,11 @@ void showMenu(int &selectFalse){
 		}
 	}
 }
+void deleteBook(int *numberBook);{
+	int position;
+	cout<<"sua chi tiet sach";
+	do{ cout<<"nhap ma sach can sua:";
+	   cin>>idOfBook;
+	   position=Book;
+	   
+	
